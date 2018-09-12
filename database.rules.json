@@ -1,0 +1,207 @@
+{
+  "rules": {
+    "users": {
+      "brief": {
+        ".read": true,
+        "$uid": {
+          ".read": true,
+          ".write": "$uid==auth.uid&&!data.exists()",
+          "nick_name": {
+            ".write": "$uid==auth.uid&&newData.exists()"
+          },
+          "ref_collect_ct": {
+            ".write": "$uid==auth.uid&&newData.exists()"
+          },
+          "ref_created_ct": {
+            ".write": "$uid==auth.uid&&newData.exists()"
+          },
+          "current_prac_ref": {
+            ".write": "$uid==auth.uid&&newData.exists()"
+          },
+          "prac_ct": {
+            ".write": "$uid==auth.uid&&newData.exists()"
+          }
+        }
+      },
+      "admin": {
+        "$uid": {
+          ".read":
+            "$uid==auth.uid||root.child('users/admin').child(auth.uid).child('superior').val() == true",
+          ".write":
+            "root.child('users/admin').child(auth.uid).child('superior').val() == true"
+        }
+      },
+      "detail": {
+        "$uid": {
+          ".read": "auth!=null",
+          ".write": "$uid==auth.uid"
+        }
+      },
+      "collected_ref": {
+        "$uid": {
+          ".read": "$uid==auth.uid",
+          ".write": "$uid==auth.uid"
+        }
+      },
+      "liked_sketch": {
+        "$uid": {
+          ".read": "$uid==auth.uid",
+          ".write": "$uid==auth.uid"
+        }
+      }
+    },
+    "user_collected_ref": {
+      ".indexOn": ["ref", "user"],
+      ".read": "auth!=null",
+      ".write": "auth!=null"
+    },
+    "references": {
+      "brief": {
+        ".indexOn": ["created_by", "created_at", "collected_ct", "prac_ct"],
+        "$recipe_id": {
+          "collected_ct": {
+            ".write": "auth!=null"
+          },
+          "comment_ct": {
+            ".write": "auth!=null"
+          },
+          "prac_ct": {
+            ".write": "auth!=null"
+          },
+          ".write":
+            "auth != null && !data.exists() ||data.child('created_by').val() == auth.uid||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true"
+        },
+        ".read": true
+      },
+      "detail": {
+        "$recipe_id": {
+          ".read": true,
+          ".write":
+            "auth != null && !data.exists() ||data.child('created_by').val() == auth.uid||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true"
+        }
+      },
+      "comment_group": {
+        "first": {},
+        "second": {},
+        ".read": true,
+        ".write": "auth != null||data.child('created_by').val() == auth.uid"
+      }
+    },
+    "sketches": {
+      "brief": {
+        ".indexOn": ["belong_ref_id", "created_by", "user_ref_key"],
+        ".read": true,
+        "$dish_id:": {
+          ".write":
+            "auth != null && !data.exists() ||data.child('created_by').val() == auth.uid||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true",
+          "comment_ct": {
+            ".write": "auth!=null"
+          },
+          "liked_ct": {
+            ".write": "auth!=null"
+          }
+        }
+      },
+      "detail": {
+        "$dish_id:": {
+          ".read": true,
+          ".write":
+            "auth != null && !data.exists() ||data.child('created_by').val() == auth.uid ||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true"
+        }
+      },
+      "comment_group": {
+        "first": {},
+        "second": {},
+        ".read": true,
+        ".write": "auth != null||data.child('created_by').val() == auth.uid"
+      },
+      "feedbacks": {
+        ".read": true,
+        ".write": "auth != null||data.child('created_by').val() == auth.uid"
+      }
+    },
+    "refrigerator": {
+      "brief": {
+        ".read": "auth != null",
+        ".indexOn": ["belong_ref_id", "created_by"],
+        "$dish_id:": {
+          ".read":
+            "data.child('created_by').val() == auth.uid||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true",
+          ".write":
+            "auth != null && !data.exists() ||data.child('created_by').val() == auth.uid ||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true"
+        }
+      },
+      "detail": {
+        ".read": "auth != null",
+        "$dish_id:": {
+          ".read":
+            "data.child('created_by').val() == auth.uid||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true",
+          ".write":
+            "auth != null && !data.exists() || data.child('created_by').val() == auth.uid ||root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true"
+        }
+      }
+    },
+    "streaming": {
+      "brief": {
+        "$room_id": {
+          ".read": "true",
+          ".write": "true"
+        }
+      },
+      "detail": {
+        "$room_id": {
+          ".read": "auth.uid==$room_id",
+          ".write": "auth.uid==$room_id",
+          "users": {
+            ".write": "true",
+            ".read": "true"
+          },
+          "commands": {
+            ".write": "true",
+            ".read": "true"
+          }
+        }
+      }
+    },
+    "locale": {
+      ".read": true,
+      "$locale_text_key": {
+        ".write": true
+      }
+    },
+    "locale_table": {
+      ".read": true,
+      ".write": "auth.uid!=null"
+    },
+    "events": {
+      "$eventID": {
+        ".read": "auth != null",
+        ".write": " auth!=null && newData.child('created_by').val()==auth.uid"
+      }
+    },
+    "releted": {
+      ".write": false,
+      "$contentID": {}
+    },
+    "notification": {
+      "$uid": {
+        ".read": "$uid==auth.uid"
+      }
+    },
+    "fcm": {
+      "$uid": {
+        ".write": "$uid==auth.uid",
+        ".read": "$uid==auth.uid"
+      }
+    },
+    "dailychallenge": {
+      ".write":
+        "root.child('users/admin').child(auth.uid).child('edit_user_post').val() == true",
+      ".read": true
+    },
+    "mturktask": {
+      ".write": true,
+      ".read": true
+    }
+  }
+}

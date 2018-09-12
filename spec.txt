@@ -1,0 +1,20 @@
+admin: control database, read all files()
+read: files
+
+file list can access/ artwork_id, critiquer_id
+comment file  on process/ artwork_id, critiquer_id
+
+user:{
+    id:string
+    name:string
+    artworks_id_accessable:[string]
+    
+}
+
+artwork:{
+    comments_id
+}
+
+comments:{
+
+}

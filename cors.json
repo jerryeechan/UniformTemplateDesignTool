@@ -1,0 +1,13 @@
+[
+  {
+    "origin": [
+      "http://localhost:5000/",
+      "http://localhost:3000/",
+      "https://sketch-share.firebaseapp.com",
+      "https://sketch-academy-share.firebaseapp.com",
+      "https://sketchsharetest.firebaseapp.com"
+    ],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]

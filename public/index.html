@@ -1,0 +1,179 @@
+<html>
+
+<head>
+<meta property="og:url"                content="https://sketch-academy-share.firebaseapp.com/" />
+<meta property="og:type"               content="article" />
+<meta property="og:title"              content="制服設計工具-特色校服徵選計畫" />
+<meta property="og:description"        content="" />
+<meta property="og:image"              content="" />
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+
+
+  <!-- Google Tag Manager -->
+  <!-- <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NB6FRQF');
+  </script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-100239581-1"></script>
+  <script>
+    //TODO: delete this block if GTM works!
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments) };
+    gtag('js', new Date());
+    gtag('config', 'UA-100239581-1');
+  </script> -->
+
+
+  <meta charset="UTF-8">
+  <title>制服設計工具-特色校服徵選計畫</title>
+  <link rel="manifest" href="/manifest.json">
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> -->
+  <link rel="icon" type="image/ico" href="/favicon-48x48.ico" sizes="48x48">
+  <link rel="icon" type="image/ico" href="/favicon-32x32.ico" sizes="32x32">
+  <link rel="icon" type="image/ico" href="/favicon-16x16.ico" sizes="16x16">
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"> -->
+  <!-- <meta name="theme-color" content="#ffffff"> -->
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <!-- <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB6FRQF" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript> -->
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="paint-tool"></div>
+
+  <!--shader-->
+  <!-- <script src="http://localhost:8097"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+
+  <!-- <script src="js/jquery.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script> -->
+
+  <script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+  </script>
+  <script src="js/Sortable.min.js"></script>
+  <script>
+    //Sortable.create(simpleList, { /* options */ });
+  </script>
+  <!-- <script src="js/jquery.mousewheel.min.js"></script>
+  <script src="js/progress.min.js"></script> -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/progress.min.css"> -->
+  <!--<link rel="stylesheet" type="text/css" href="css/photon.min.css">-->
+
+
+
+  <script>
+    if (window.module) module = window.module;
+  </script>
+  <!--
+    <script src="js/bootstrap-colorpicker.min.js"></script>
+    <script src="js/bootstrap-colorpicker-plus.js"></script>
+-->
+  <!-- <script src="js/ElementQueries.js"></script>
+  <script src="js/ResizeSensor.js"></script> -->
+
+  <!--<script src="typescript/painter/lightgl.js"></script>-->
+  <!-- <script src="https://connect.facebook.net/en_US/sdk.js"></script> -->
+  <script>
+
+  </script>
+  <!-- <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css"> -->
+
+  <!-- <script src="semantic/semantic.min.js"></script>   -->
+
+  <script src="js/lightgl/vector.js"></script>
+  <script src="js/lightgl/texture.js"></script>
+  <script src="js/lightgl/matrix.js"></script>
+  <script src="js/lightgl/mesh.js"></script>
+  <script src="js/lightgl/shader.js"></script>
+  <script src="js/lightgl/raytracer.js"></script>
+  <script src="js/lightgl/main.js"></script>
+
+  <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+
+  <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <script src="js/semantic-ui-react.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-react/0.78.3/semantic-ui-react.min.js"></script>
+  <link rel="stylesheet" href="css/semantic.min.css"></link>
+  <script src="dist/CCapture.all.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" -->
+  <!-- <link rel="stylesheet" href="http://getskeleton.com/dist/css/normalize.css"> -->
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script> 
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css"></link>  -->
+  <script src="dist/react-router-dom.min.js"></script>
+  <script src="dist/react-draggable.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.0.0/fabric.min.js"></script>
+  <script src="dist/vendors.js"></script>
+  <script src="dist/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/painter.css" />
+  <script>
+    window.pAsyncInit = function () {
+      PDK.init({
+        appId: "4932880934503466102", // Change this
+        cookie: true
+      });
+    };
+
+    (function (d, s, id) {
+      var js, pjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "//assets.pinterest.com/sdk/sdk.js";
+      pjs.parentNode.insertBefore(js, pjs);
+    }(document, 'script', 'pinterest-jssdk'));
+  </script>
+
+  <!-- WhatsHelp.io widget -->
+  <!-- <script type="text/javascript">
+    (function () {
+      var options = {
+        facebook: "240219946437853", // Facebook page ID
+        company_logo_url: "//scontent.xx.fbcdn.net/v/t1.0-1/p100x100/22366826_357010348092145_4107460418223269243_n.png?oh=27d28f2966b54382e5c3f717ec188382&oe=5A877783", // URL of company logo (png, jpg, gif)
+        greeting_message: "有任何bug或使用上的問題和建議都歡迎直接傳訊息給我們！", // Text of greeting message
+        //call_to_action: "讓SketchShare更好", // Call to action
+        position: "left", // Position may be 'right' or 'left'
+      };
+
+      var proto = document.location.protocol, host = "whatshelp.io", url = proto + "//static." + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () {
+        console.log("BTN", WhWidgetSendButton)
+        WhWidgetSendButton.init(host, proto, options);
+        // var iframe = document.getElementsByTagName("iframe")[0]
+        // var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        // console.log("BTN", iframe.getElementsByTagName("body"));
+        // var btn = document.getElementsByTagName("iframe")[0].document.getElementsByClassName(" wh-widget-button-icon wh-messenger-bg-facebook");
+        // console.log("BTN", btn);
+        // btn[0].className += "test";
+      };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+
+  </script> -->
+  <!-- /WhatsHelp.io widget -->
+</body>
+
+</html>
